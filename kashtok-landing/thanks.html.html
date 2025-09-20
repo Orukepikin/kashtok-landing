@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thanks — Kashtok</title>
+  <meta name="description" content="Thanks for joining the Kashtok waitlist. We'll email you as early access opens." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- TailwindCSS (CDN for simplicity) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: { 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' } }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+  <main class="mx-auto max-w-xl px-6 pt-28 pb-16 text-center">
+    <div class="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-brand-50 text-brand-600">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path fill-rule="evenodd" d="M2.25 12a9.75 9.75 0 1119.5 0 9.75 9.75 0 01-19.5 0zm14.28-2.53a.75.75 0 00-1.06-1.06l-4.72 4.72-2.22-2.22a.75.75 0 10-1.06 1.06l2.75 2.75a.75.75 0 001.06 0l5.25-5.25z" clip-rule="evenodd"/></svg>
+    </div>
+    <h1 class="text-3xl font-extrabold tracking-tight">You’re on the list 🎉</h1>
+    <p class="mt-3 text-base text-gray-600">Thanks for joining the Kashtok waitlist. We’ll email you when early access opens and share launch updates.</p>
+
+    <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+      <a href="/" class="inline-flex items-center justify-center rounded-lg bg-brand-600 px-5 py-3 font-semibold text-white shadow hover:bg-brand-700">Back to home</a>
+      <a href="#" class="inline-flex items-center justify-center rounded-lg border px-5 py-3 font-semibold text-gray-700 hover:bg-gray-50">Follow updates</a>
+    </div>
+
+    <p class="mt-6 text-xs text-gray-500">Didn’t mean to sign up? <a href="#" class="underline">Contact support</a>.</p>
+  </main>
+
+  <footer class="border-t">
+    <div class="mx-auto max-w-7xl px-6 py-8 text-center text-xs text-gray-500">
+      © <span id="year"></span> Kashtok. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
