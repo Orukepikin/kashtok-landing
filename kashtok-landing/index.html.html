@@ -41,23 +41,38 @@
     }
   </script>
 
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KashTok",
+    "url": "https://kashtok.com",
+    "logo": "https://kashtok.com/logo.png",
+    "slogan": "Your Money, Your Move"
+  }
+  </script>
+
   <style>
     html { scroll-behavior: smooth; }
     .hero-bg {
-      background: radial-gradient(1200px 600px at 10% -10%, rgba(255,255,255,0.25), rgba(255,255,255,0) 60%),
-                  radial-gradient(1000px 500px at 110% 10%, rgba(255,255,255,0.18), rgba(255,255,255,0) 55%),
-                  #603987;
+      /* soft highlights over brand purple */
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(255,255,255,0.25), rgba(255,255,255,0) 60%),
+        radial-gradient(1000px 500px at 110% 10%, rgba(255,255,255,0.18), rgba(255,255,255,0) 55%),
+        #603987;
     }
   </style>
 </head>
 <body class="bg-white text-gray-900">
-  <!-- Announcement Bar -->
+
+  <!-- Top bar -->
   <div class="w-full bg-brand-600 text-white text-sm text-center py-2">
     <span class="font-medium">KashTok</span> · <span class="italic">Your Money, Your Move</span>
     <a href="#cta" class="underline ml-2">Join the waitlist</a>
   </div>
 
-  <!-- Nav -->
+  <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex items-center justify-between h-16">
@@ -76,6 +91,18 @@
         <div class="hidden md:flex items-center gap-3">
           <a href="#cta" class="inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700">Join the waitlist</a>
         </div>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-md border p-2">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-100">
+      <div class="px-6 py-4 space-y-3 text-sm">
+        <a href="#features" class="block">Features</a>
+        <a href="#how" class="block">Early Access</a>
+        <a href="#faq" class="block">FAQ</a>
+        <a href="#cta" class="inline-flex w-full items-center justify-center rounded-lg bg-brand-600 px-4 py-2 font-semibold text-white hover:bg-brand-700">Join the waitlist</a>
       </div>
     </div>
   </header>
@@ -86,11 +113,109 @@
       <div>
         <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">KashTok</h1>
         <p class="mt-3 text-xl opacity-90">Your Money, Your Move</p>
-        <p class="mt-6 text-lg opacity-90">Spend, save and move money fast. Virtual cards, bills, airtime, budgets and savings vaults — all in one sleek app. Early access opens soon.</p>
+        <p class="mt-6 text-lg opacity-90">Spend, save and move money fast. Virtual cards, bills, airtime, budgets and savings vaults in one sleek app. Early access opens soon.</p>
         <form id="waitlistForm" class="mt-8 flex flex-col sm:flex-row gap-3">
           <input required name="email" id="email" type="email" placeholder="Enter your email" class="w-full sm:flex-1 rounded-lg border border-white/30 bg-white/90 text-gray-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white" />
           <button class="inline-flex items-center justify-center rounded-lg bg-white text-brand-600 px-6 py-3 font-semibold shadow hover:bg-gray-100" type="submit">Join the waitlist</button>
         </form>
+        <div class="mt-4 flex items-center gap-3 text-sm opacity-90">
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          No spam. Unsubscribe anytime.
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-2xl border border-white/20 bg-white/10 shadow-sm flex items-center justify-center">
+          <span class="text-white/80">App mockup preview</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold">Why people choose <span class="text-brand-600">KashTok</span></h2>
+        <p class="mt-3 text-gray-600">Built for modern money in Nigeria and beyond. Simple, fast and secure.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-brandbg rounded-2xl border border-purple-100 shadow-sm">
+          <div class="h-10 w-10 rounded-lg bg-white text-brand-600 flex items-center justify-center mb-4">⚡</div>
+          <h3 class="font-semibold">Send and spend instantly</h3>
+          <p class="mt-2 text-gray-700">Free transfers in KashTok, fast local bank transfers and a virtual USD card for safe online payments.</p>
+        </div>
+        <div class="p-6 bg-brandbg rounded-2xl border border-purple-100 shadow-sm">
+          <div class="h-10 w-10 rounded-lg bg-white text-brand-600 flex items-center justify-center mb-4">💰</div>
+          <h3 class="font-semibold">Save automatically</h3>
+          <p class="mt-2 text-gray-700">Smart vaults, round ups and goal based savings with gentle nudges so you actually keep more.</p>
+        </div>
+        <div class="p-6 bg-brandbg rounded-2xl border border-purple-100 shadow-sm">
+          <div class="h-10 w-10 rounded-lg bg-white text-brand-600 flex items-center justify-center mb-4">🔒</div>
+          <h3 class="font-semibold">Bank grade security</h3>
+          <p class="mt-2 text-gray-700">Encryption end to end, two factor authentication and privacy by design. Your money, your data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold">How early access works</h2>
+        <p class="mt-3 text-gray-600">Join the waitlist today. We invite cohorts in waves as we scale capacity.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-4 gap-8">
+        <div class="p-6 rounded-2xl border">
+          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-bold">1</div>
+          <h3 class="mt-4 font-semibold">Join the waitlist</h3>
+          <p class="mt-2 text-gray-600">Sign up with your email. We confirm your spot instantly.</p>
+        </div>
+        <div class="p-6 rounded-2xl border">
+          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-bold">2</div>
+          <h3 class="mt-4 font-semibold">Get invite</h3>
+          <p class="mt-2 text-gray-600">We roll out invites in batches and share download links.</p>
+        </div>
+        <div class="p-6 rounded-2xl border">
+          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-bold">3</div>
+          <h3 class="mt-4 font-semibold">Set up in minutes</h3>
+          <p class="mt-2 text-gray-600">Verify, create your first vault, try a transfer and top up.</p>
+        </div>
+        <div class="p-6 rounded-2xl border">
+          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-bold">4</div>
+          <h3 class="mt-4 font-semibold">Share feedback</h3>
+          <p class="mt-2 text-gray-600">Tell us what to improve and we will prioritise beta users requests.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center">FAQ</h2>
+      <div class="mt-10 space-y-4">
+        <details class="group rounded-xl border bg-white p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold">When are you launching?</span>
+            <svg class="h-5 w-5 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="mt-3 text-gray-600">We are in closed beta and inviting users in waves. Join the waitlist to get an invite.</p>
+        </details>
+        <details class="group rounded-xl border bg-white p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold">Is KashTok secure?</span>
+            <svg class="h-5 w-5 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="mt-3 text-gray-600">Yes. We use industry standard encryption in transit and at rest, strong authentication and strict access controls.</p>
+        </details>
+        <details class="group rounded-xl border bg-white p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold">Will KashTok replace my bank?</span>
+            <svg class="h-5 w-5 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="mt-3 text-gray-600">KashTok works alongside your bank to make everyday money simpler. Faster transfers, smarter savings and safer online payments.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -101,6 +226,7 @@
       <h2 class="text-3xl md:text-4xl font-extrabold">Be first to try KashTok</h2>
       <p class="mt-4 text-lg text-gray-700">Join the waitlist for early access, launch updates and perks.</p>
       <a href="#waitlistForm" class="mt-8 inline-flex items-center justify-center rounded-xl bg-brand-600 px-8 py-4 text-base font-semibold text-white shadow hover:bg-brand-700">Join the waitlist</a>
+      <p class="mt-3 text-xs text-gray-500">By joining you agree to our Terms and Privacy Policy.</p>
     </div>
   </section>
 
@@ -112,14 +238,22 @@
     </div>
   </footer>
 
+  <!-- JS -->
   <script>
+    // year
     document.getElementById('year').textContent = new Date().getFullYear();
-    const form = document.getElementById('waitlistForm');
-    form.addEventListener('submit', function(e){
+
+    // mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // waitlist -> store email and redirect
+    document.getElementById('waitlistForm').addEventListener('submit', function(e){
       e.preventDefault();
       const email = document.getElementById('email').value.trim();
       if(!email) return;
-      try { localStorage.setItem('kashtok_waitlist_email', email); } catch(e) {}
+      try { localStorage.setItem('kashtok_waitlist_email', email); } catch(err) {}
       window.location.href = '/thanks.html';
     });
   </script>
