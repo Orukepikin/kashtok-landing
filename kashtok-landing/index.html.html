@@ -28,6 +28,9 @@
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+          },
           colors: {
             brand: {
               DEFAULT: "#603987",
@@ -60,7 +63,7 @@
     .hero-bg {
       background:
         radial-gradient(1200px 600px at -10% -20%, rgba(255,255,255,0.18), transparent 60%),
-        radial-gradient(900px 500px at 110% 0%, rgba(255,255,255,0.12), transparent 55%),
+        radial-gradient(900px 500px at 110% 0%, rgba(255,255,255,0.15), transparent 55%),
         linear-gradient(135deg, #3d216b 0%, #603987 45%, #7a4bb0 100%);
     }
 
@@ -75,10 +78,10 @@
         transform: rotate(0deg) translateY(0);
       }
       20% {
-        transform: rotate(-4deg) translateY(-4px);
+        transform: rotate(-3deg) translateY(-4px);
       }
       40% {
-        transform: rotate(4deg) translateY(-4px);
+        transform: rotate(3deg) translateY(-4px);
       }
       60% {
         transform: rotate(-2deg) translateY(-2px);
@@ -89,34 +92,36 @@
     }
   </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-white text-gray-900 font-sans">
 
   <!-- Top bar -->
-  <div class="w-full bg-brand-600 text-white text-sm text-center py-2">
+  <div class="w-full bg-brand-600 text-white text-xs sm:text-sm text-center py-2">
     <span class="font-medium">KashTok</span> · <span class="italic">Your Money, Your Move</span>
     <a href="#cta" class="underline ml-2">Join the waitlist</a>
   </div>
 
   <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-6">
+  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-3">
-          <img src="/logo.png" alt="KashTok logo" class="h-9 w-9 rounded-md object-cover" />
+          <img src="./logo.png" alt="KashTok logo" class="h-9 w-9 rounded-md object-cover" />
           <div class="leading-tight">
-            <span class="block font-semibold">KashTok</span>
+            <span class="block font-semibold text-sm">KashTok</span>
             <span class="block text-[11px] text-gray-500 tracking-wide">Your Money, Your Move</span>
           </div>
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#features" class="hover:text-brand-600">Features</a>
-          <a href="#demo" class="hover:text-brand-600">App demo</a>
-          <a href="#services" class="hover:text-brand-600">Services</a>
-          <a href="#how" class="hover:text-brand-600">Early Access</a>
-          <a href="#faq" class="hover:text-brand-600">FAQ</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
+          <a href="#features" class="hover:text-brand-600 transition">Features</a>
+          <a href="#demo" class="hover:text-brand-600 transition">App demo</a>
+          <a href="#services" class="hover:text-brand-600 transition">Services</a>
+          <a href="#how" class="hover:text-brand-600 transition">Early Access</a>
+          <a href="#faq" class="hover:text-brand-600 transition">FAQ</a>
         </nav>
         <div class="hidden md:flex items-center gap-3">
-          <a href="#cta" class="inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700">Join the waitlist</a>
+          <a href="#cta" class="inline-flex items-center justify-center rounded-full bg-brand-600 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-brand-700 transition">
+            Join the waitlist
+          </a>
         </div>
         <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-md border p-2">
           <span class="sr-only">Open menu</span>
@@ -133,41 +138,54 @@
         <a href="#services" class="block">Services</a>
         <a href="#how" class="block">Early Access</a>
         <a href="#faq" class="block">FAQ</a>
-        <a href="#cta" class="inline-flex w-full items-center justify-center rounded-lg bg-brand-600 px-4 py-2 font-semibold text-white hover:bg-brand-700">Join the waitlist</a>
+        <a href="#cta" class="inline-flex w-full items-center justify-center rounded-full bg-brand-600 px-4 py-2 font-semibold text-white hover:bg-brand-700">Join the waitlist</a>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="relative overflow-hidden hero-bg text-white">
-    <div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="absolute inset-0 pointer-events-none opacity-60">
+      <!-- soft light streak -->
+      <div class="absolute -left-40 top-32 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute right-0 bottom-[-6rem] h-80 w-80 rounded-full bg-purple-300/10 blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
       <!-- Left: Copy + Form -->
       <div>
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">KashTok</h1>
-        <p class="mt-3 text-xl opacity-90">Your Money, Your Move</p>
-        <p class="mt-6 text-lg opacity-90">
-          Spend, save and move money fast. Virtual cards, bills, airtime, budgets and savings vaults in one sleek app.
-          Built for salary earners, hustlers and agents who are tired of juggling too many apps.
+        <div class="inline-flex items-center gap-2 rounded-full bg-black/10 border border-white/15 px-3 py-1 text-[11px] uppercase tracking-wide">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+          <span>Closed beta · Inviting early users</span>
+        </div>
+
+        <h1 class="mt-4 text-4xl sm:text-5xl lg:text-[3.2rem] font-bold tracking-tight leading-tight">
+          Your money,<br class="hidden sm:block" /> finally in one calm app.
+        </h1>
+
+        <p class="mt-4 text-base sm:text-lg text-white/85 leading-relaxed max-w-xl">
+          KashTok helps you spend, save and move money without stress. Pay bills, buy airtime, send money,
+          and grow your savings — all in one sleek app built for real life in Nigeria.
         </p>
 
-        <form id="waitlistForm" class="mt-8 flex flex-col sm:flex-row gap-3">
+        <form id="waitlistForm" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-md">
           <input
             required
             name="email"
             id="email"
             type="email"
-            placeholder="Enter your email"
-            class="w-full sm:flex-1 rounded-lg border border-white/30 bg-white/90 text-gray-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white"
+            placeholder="Enter your best email"
+            class="w-full sm:flex-1 rounded-full border border-white/30 bg-white/95 text-gray-900 text-sm px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/80"
           />
           <button
-            class="inline-flex items-center justify-center rounded-lg bg-white text-brand-600 px-6 py-3 font-semibold shadow hover:bg-gray-100"
+            class="inline-flex items-center justify-center rounded-full bg-white text-brand-600 px-6 py-3 text-sm font-semibold shadow hover:bg-gray-100 transition"
             type="submit"
           >
             Join the waitlist
           </button>
         </form>
 
-        <div class="mt-4 flex flex-wrap items-center gap-3 text-sm opacity-90">
+        <div class="mt-4 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-white/80">
           <div class="flex items-center gap-2">
             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -177,7 +195,7 @@
           <button
             type="button"
             onclick="document.getElementById('demo')?.scrollIntoView({behavior:'smooth'})"
-            class="inline-flex items-center gap-2 text-xs underline decoration-white/60"
+            class="inline-flex items-center gap-2 text-[11px] sm:text-xs underline decoration-white/60"
           >
             Watch the product demo
             <svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -189,25 +207,22 @@
 
       <!-- Right: Phone mockup carousel with overlays -->
       <div class="relative flex justify-center lg:justify-end">
-        <div class="phone-rock relative w-[250px] sm:w-[270px] md:w-[320px] aspect-[9/19] rounded-[2.5rem] bg-black shadow-2xl border border-white/15 overflow-hidden">
+        <div class="phone-rock relative w-[230px] sm:w-[260px] md:w-[300px] aspect-[9/19] rounded-[2.3rem] bg-black shadow-2xl border border-white/20 overflow-hidden">
           <!-- Bezel / frame overlay -->
           <div class="absolute inset-0 pointer-events-none">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 mt-2 h-4 w-24 rounded-full bg-black/70"></div>
           </div>
 
-          <!-- Slides (each slide = image + gradient + text overlay) -->
+          <!-- Slides (all use same image for now) -->
           <div class="relative w-full h-full">
-            <!-- Slide 1: Home / wallet -->
-            <div
-              class="hero-carousel-slide absolute inset-0 opacity-100 transition-opacity duration-700"
-              data-slide="0"
-            >
+            <!-- Slide 1 -->
+            <div class="hero-carousel-slide absolute inset-0 opacity-100 transition-opacity duration-700" data-slide="0">
               <img
-                src="/assets/images/mockups/kashtok-home-wallet.jpeg"
+                src="./kashtok-home-wallet.jpeg"
                 alt="KashTok home screen showing wallet balance, shortcuts and recent activity."
                 class="w-full h-full object-cover"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4 text-white text-[11px]">
                 <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-white/15 border border-white/25 mb-1">
                   <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 mr-1.5"></span>
@@ -219,46 +234,40 @@
               </div>
             </div>
 
-            <!-- Slide 2: Bills & airtime -->
-            <div
-              class="hero-carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700"
-              data-slide="1"
-            >
+            <!-- Slide 2 -->
+            <div class="hero-carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700" data-slide="1">
               <img
-                src="/assets/images/mockups/kashtok-payments-bills.jpeg"
+                src="./kashtok-home-wallet.jpeg"
                 alt="KashTok payments dashboard with electricity, data and airtime options."
                 class="w-full h-full object-cover"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4 text-white text-[11px]">
                 <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-white/15 border border-white/25 mb-1">
                   <span class="h-1.5 w-1.5 rounded-full bg-sky-400 mr-1.5"></span>
                   <span class="uppercase tracking-wide">Bills · Airtime & Utilities</span>
                 </div>
                 <p class="text-[11px] text-white/80">
-                  Settle electricity, TV, data and airtime in a few taps — for you or family.
+                  Pay electricity, TV, data and airtime for yourself or family in a few taps.
                 </p>
               </div>
             </div>
 
-            <!-- Slide 3: Savings vaults -->
-            <div
-              class="hero-carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700"
-              data-slide="2"
-            >
+            <!-- Slide 3 -->
+            <div class="hero-carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700" data-slide="2">
               <img
-                src="/assets/images/mockups/kashtok-savings-vaults.jpeg"
+                src="./kashtok-home-wallet.jpeg"
                 alt="KashTok savings vaults screen with goals and automated savings setup."
                 class="w-full h-full object-cover"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4 text-white text-[11px]">
                 <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-white/15 border border-white/25 mb-1">
                   <span class="h-1.5 w-1.5 rounded-full bg-amber-300 mr-1.5"></span>
                   <span class="uppercase tracking-wide">Savings · Goals & Vaults</span>
                 </div>
                 <p class="text-[11px] text-white/80">
-                  Create vaults for rent, school fees or travel and let KashTok nudge you to stay consistent.
+                  Create vaults for rent, school fees or travel and stay consistent with gentle nudges.
                 </p>
               </div>
             </div>
@@ -289,26 +298,34 @@
 
   <!-- Features -->
   <section id="features" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold">Why people choose <span class="text-brand-600">KashTok</span></h2>
-        <p class="mt-3 text-gray-600">Built for modern money in Nigeria and beyond. Simple, fast and secure.</p>
+        <h2 class="text-3xl font-semibold tracking-tight text-gray-900">Why people choose <span class="text-brand-600">KashTok</span></h2>
+        <p class="mt-3 text-gray-600 text-sm sm:text-base">
+          Built for modern money in Nigeria and beyond — fast, simple and secure, without the noise.
+        </p>
       </div>
       <div class="mt-10 grid md:grid-cols-3 gap-8">
         <div class="p-6 bg-brandbg rounded-2xl border border-purple-100 shadow-sm">
-          <div class="h-10 w-10 rounded-lg bg-white text-brand-600 flex items-center justify-center mb-4">⚡</div>
-          <h3 class="font-semibold">Send and spend instantly</h3>
-          <p class="mt-2 text-gray-700">Free transfers in KashTok, fast local bank transfers and a virtual USD card for safe online payments.</p>
+          <div class="h-9 w-9 rounded-xl bg-white text-brand-600 flex items-center justify-center mb-4 text-lg">⚡</div>
+          <h3 class="font-semibold text-gray-900">Send and spend instantly</h3>
+          <p class="mt-2 text-gray-700 text-sm">
+            Free transfers within KashTok, fast local bank transfers and a virtual card for safer online payments.
+          </p>
         </div>
         <div class="p-6 bg-brandbg rounded-2xl border border-purple-100 shadow-sm">
-          <div class="h-10 w-10 rounded-lg bg-white text-brand-600 flex items-center justify-center mb-4">💰</div>
-          <h3 class="font-semibold">Save automatically</h3>
-          <p class="mt-2 text-gray-700">Smart vaults, round ups and goal based savings with gentle nudges so you actually keep more.</p>
+          <div class="h-9 w-9 rounded-xl bg-white text-brand-600 flex items-center justify-center mb-4 text-lg">💰</div>
+          <h3 class="font-semibold text-gray-900">Save on autopilot</h3>
+          <p class="mt-2 text-gray-700 text-sm">
+            Smart vaults, round-ups and goal-based savings with gentle reminders so you actually keep more.
+          </p>
         </div>
         <div class="p-6 bg-brandbg rounded-2xl border border-purple-100 shadow-sm">
-          <div class="h-10 w-10 rounded-lg bg-white text-brand-600 flex items-center justify-center mb-4">🔒</div>
-          <h3 class="font-semibold">Bank grade security</h3>
-          <p class="mt-2 text-gray-700">Encryption end to end, two factor authentication and privacy by design. Your money, your data.</p>
+          <div class="h-9 w-9 rounded-xl bg-white text-brand-600 flex items-center justify-center mb-4 text-lg">🔒</div>
+          <h3 class="font-semibold text-gray-900">Bank-grade security</h3>
+          <p class="mt-2 text-gray-700 text-sm">
+            Encryption end to end, two-factor authentication and privacy by design. Your money, your data.
+          </p>
         </div>
       </div>
     </div>
@@ -316,12 +333,12 @@
 
   <!-- App Demo (video) -->
   <section id="demo" class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
       <div>
-        <h2 class="text-3xl font-bold">See KashTok in action</h2>
-        <p class="mt-3 text-gray-600">
-          Watch a short walkthrough of how KashTok helps you move money, pay bills and stay on top of your savings
-          without stress.
+        <h2 class="text-3xl font-semibold tracking-tight text-gray-900">See KashTok in action</h2>
+        <p class="mt-3 text-gray-600 text-sm sm:text-base">
+          A quick walkthrough of how KashTok helps you handle the everyday money chaos — bills, transfers and savings —
+          from one calm home screen.
         </p>
         <ul class="mt-6 space-y-3 text-gray-700 text-sm">
           <li class="flex gap-3">
@@ -330,7 +347,7 @@
           </li>
           <li class="flex gap-3">
             <span class="mt-1 h-5 w-5 flex items-center justify-center rounded-full bg-brand-600 text-white text-[11px]">2</span>
-            <span><strong>Everyday flows</strong> like sending money, buying airtime and paying electricity.</span>
+            <span><strong>Real-life flows</strong> like sending money, buying airtime and paying electricity.</span>
           </li>
           <li class="flex gap-3">
             <span class="mt-1 h-5 w-5 flex items-center justify-center rounded-full bg-brand-600 text-white text-[11px]">3</span>
@@ -338,7 +355,7 @@
           </li>
         </ul>
         <p class="mt-6 text-xs text-gray-500">
-          You can swap this video anytime with a new Loom or YouTube link as the product evolves.
+          Swap this video anytime with a new Loom or YouTube link as the product evolves.
         </p>
       </div>
       <div>
@@ -361,25 +378,25 @@
     </div>
   </section>
 
-  <!-- Services (segmented by audience) -->
+  <!-- Services -->
   <section id="services" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold">What KashTok offers</h2>
-        <p class="mt-3 text-gray-600">
-          KashTok is designed for the way real people handle money — whether you’re managing salary,
-          running a small business or serving your community as an agent.
+        <h2 class="text-3xl font-semibold tracking-tight text-gray-900">What KashTok offers</h2>
+        <p class="mt-3 text-gray-600 text-sm sm:text-base">
+          Whether you’re managing salary, running a small business or serving your community as an agent,
+          KashTok gives everyone a calmer way to handle money.
         </p>
       </div>
 
       <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm">
-        <!-- Retail / Everyday users -->
+        <!-- Retail -->
         <div class="p-6 rounded-2xl border bg-gray-50 flex flex-col h-full">
           <div class="flex items-center justify-between mb-1">
-            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700">For everyday users</p>
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700">Everyday users</p>
             <span class="text-[10px] px-2 py-1 rounded-full bg-green-100 text-green-700">Available at launch</span>
           </div>
-          <h3 class="font-semibold text-gray-900">Your all-in-one money app</h3>
+          <h3 class="font-semibold text-gray-900">Your all-in-one money home</h3>
           <ul class="mt-3 space-y-2 text-gray-700">
             <li>• Personal wallet to receive salary, transfers and refunds in one place.</li>
             <li>• Pay electricity, TV, internet, airtime and data directly inside the app.</li>
@@ -389,10 +406,10 @@
           </ul>
         </div>
 
-        <!-- Businesses & creators -->
+        <!-- Businesses -->
         <div class="p-6 rounded-2xl border bg-gray-50 flex flex-col h-full">
           <div class="flex items-center justify-between mb-1">
-            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700">For businesses & creators</p>
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700">Businesses & creators</p>
             <span class="text-[10px] px-2 py-1 rounded-full bg-yellow-100 text-yellow-700">Rolling out in beta</span>
           </div>
           <h3 class="font-semibold text-gray-900">Money rails for your hustle</h3>
@@ -405,10 +422,10 @@
           </ul>
         </div>
 
-        <!-- Agents & field operators -->
+        <!-- Agents -->
         <div class="p-6 rounded-2xl border bg-gray-50 flex flex-col h-full">
           <div class="flex items-center justify-between mb-1">
-            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700">For agents & operators</p>
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700">Agents & operators</p>
             <span class="text-[10px] px-2 py-1 rounded-full bg-purple-100 text-purple-800">Coming later</span>
           </div>
           <h3 class="font-semibold text-gray-900">Serve your community, earn more</h3>
@@ -423,7 +440,7 @@
       </div>
 
       <div class="mt-10 flex flex-wrap items-center gap-4 text-sm">
-        <a href="#cta" class="inline-flex items-center justify-center rounded-lg bg-brand-600 px-5 py-3 font-semibold text-white shadow hover:bg-brand-700">
+        <a href="#cta" class="inline-flex items-center justify-center rounded-full bg-brand-600 px-5 py-3 font-semibold text-white shadow hover:bg-brand-700 transition">
           Get notified when we launch
         </a>
         <p class="text-gray-500 text-xs">
@@ -435,31 +452,33 @@
 
   <!-- How it works -->
   <section id="how" class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold">How early access works</h2>
-        <p class="mt-3 text-gray-600">Join the waitlist today. We invite cohorts in waves as we scale capacity.</p>
+        <h2 class="text-3xl font-semibold tracking-tight text-gray-900">How early access works</h2>
+        <p class="mt-3 text-gray-600 text-sm sm:text-base">
+          Join the waitlist now. We invite users in small cohorts so we can test, improve and scale safely.
+        </p>
       </div>
       <div class="mt-10 grid md:grid-cols-4 gap-8">
         <div class="p-6 rounded-2xl border bg-white">
-          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-bold">1</div>
-          <h3 class="mt-4 font-semibold">Join the waitlist</h3>
-          <p class="mt-2 text-gray-600">Sign up with your email. We confirm your spot instantly.</p>
+          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-semibold text-sm">1</div>
+          <h3 class="mt-4 font-semibold text-gray-900">Join the waitlist</h3>
+          <p class="mt-2 text-gray-600 text-sm">Sign up with your email. We confirm your spot instantly.</p>
         </div>
         <div class="p-6 rounded-2xl border bg-white">
-          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-bold">2</div>
-          <h3 class="mt-4 font-semibold">Get invite</h3>
-          <p class="mt-2 text-gray-600">We roll out invites in batches and share download links.</p>
+          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-semibold text-sm">2</div>
+          <h3 class="mt-4 font-semibold text-gray-900">Get your invite</h3>
+          <p class="mt-2 text-gray-600 text-sm">We roll out invites in batches and share download links.</p>
         </div>
         <div class="p-6 rounded-2xl border bg-white">
-          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-bold">3</div>
-          <h3 class="mt-4 font-semibold">Set up in minutes</h3>
-          <p class="mt-2 text-gray-600">Verify, create your first vault, try a transfer and top up.</p>
+          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-semibold text-sm">3</div>
+          <h3 class="mt-4 font-semibold text-gray-900">Set up in minutes</h3>
+          <p class="mt-2 text-gray-600 text-sm">Verify, create your first vault, try a transfer and top up.</p>
         </div>
         <div class="p-6 rounded-2xl border bg-white">
-          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-bold">4</div>
-          <h3 class="mt-4 font-semibold">Share feedback</h3>
-          <p class="mt-2 text-gray-600">Tell us what to improve and we will prioritise beta users requests.</p>
+          <div class="h-8 w-8 rounded-md bg-gray-100 flex items-center justify-center font-semibold text-sm">4</div>
+          <h3 class="mt-4 font-semibold text-gray-900">Shape the product</h3>
+          <p class="mt-2 text-gray-600 text-sm">Share feedback and we prioritise our beta users’ requests.</p>
         </div>
       </div>
     </div>
@@ -467,38 +486,41 @@
 
   <!-- FAQ -->
   <section id="faq" class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center">FAQ</h2>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-semibold tracking-tight text-center text-gray-900">FAQ</h2>
       <div class="mt-10 space-y-4">
         <details class="group rounded-xl border bg-white p-5">
           <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold">When are you launching?</span>
-            <svg class="h-5 w-5 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base">When are you launching?</span>
+            <svg class="h-5 w-5 text-gray-500 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <p class="mt-3 text-gray-600">We are in closed beta and inviting users in waves. Join the waitlist to get an invite.</p>
-        </details>
-        <details class="group rounded-xl border bg-white p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold">Is KashTok secure?</span>
-            <svg class="h-5 w-5 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <p class="mt-3 text-gray-600">
-            Yes. We use industry standard encryption in transit and at rest, strong authentication and strict access controls.
+          <p class="mt-3 text-gray-600 text-sm">
+            We are in closed beta and inviting users in waves. Join the waitlist to be among the first to get an invite.
           </p>
         </details>
         <details class="group rounded-xl border bg-white p-5">
           <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold">Will KashTok replace my bank?</span>
-            <svg class="h-5 w-5 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base">Is KashTok secure?</span>
+            <svg class="h-5 w-5 text-gray-500 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <p class="mt-3 text-gray-600">
-            KashTok works alongside your bank to make everyday money simpler. Faster transfers, smarter savings and safer online payments.
+          <p class="mt-3 text-gray-600 text-sm">
+            Yes. We use industry-standard encryption in transit and at rest, strong authentication and strict access controls.
+          </p>
+        </details>
+        <details class="group rounded-xl border bg-white p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold text-gray-900 text-sm sm:text-base">Will KashTok replace my bank?</span>
+            <svg class="h-5 w-5 text-gray-500 transition group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <p class="mt-3 text-gray-600 text-sm">
+            KashTok works alongside your bank to make everyday money simpler — faster transfers, smarter savings
+            and safer online payments.
           </p>
         </details>
       </div>
@@ -507,10 +529,14 @@
 
   <!-- Final CTA -->
   <section id="cta" class="py-16 bg-brandbg">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-extrabold">Be first to try KashTok</h2>
-      <p class="mt-4 text-lg text-gray-700">Join the waitlist for early access, launch updates and perks.</p>
-      <a href="#waitlistForm" class="mt-8 inline-flex items-center justify-center rounded-xl bg-brand-600 px-8 py-4 text-base font-semibold text-white shadow hover:bg-brand-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+        Be first to try KashTok
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-gray-700">
+        Join the waitlist for early access, launch updates and little perks for our earliest users.
+      </p>
+      <a href="#waitlistForm" class="mt-8 inline-flex items-center justify-center rounded-full bg-brand-600 px-8 py-3 text-sm sm:text-base font-semibold text-white shadow hover:bg-brand-700 transition">
         Join the waitlist
       </a>
       <p class="mt-3 text-xs text-gray-500">By joining you agree to our Terms and Privacy Policy.</p>
@@ -519,9 +545,9 @@
 
   <!-- Footer -->
   <footer class="border-t">
-    <div class="max-w-7xl mx-auto px-6 py-12 text-center">
-      <img src="/logo.png" alt="KashTok logo" class="h-10 mx-auto rounded-md object-cover" />
-      <p class="mt-4 text-gray-600">© <span id="year"></span> KashTok · Your Money, Your Move</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 text-center">
+      <img src="./logo.png" alt="KashTok logo" class="h-10 mx-auto rounded-md object-cover" />
+      <p class="mt-4 text-gray-600 text-sm">© <span id="year"></span> KashTok · Your Money, Your Move</p>
     </div>
   </footer>
 
@@ -558,11 +584,7 @@
         current = index;
 
         slides.forEach((slide, i) => {
-          if (i === index) {
-            slide.style.opacity = '1';
-          } else {
-            slide.style.opacity = '0';
-          }
+          slide.style.opacity = (i === index) ? '1' : '0';
         });
 
         dots.forEach((dot, i) => {
